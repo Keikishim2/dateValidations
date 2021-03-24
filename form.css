@@ -1,0 +1,43 @@
+body{
+    background-image: url('boat.gif');
+    background-size: cover;
+    margin-left: 800px;
+}
+h1{
+    margin-left: 15px;
+    color: gold;
+}
+form{
+    font-size: x-large;
+    color: yellow;
+}
+#name{
+    display: block;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 15px;
+    height: 30px;
+}
+#dateFrom{
+    margin-left: 10px;
+    margin-top: 10px;
+    display: block;
+    border-radius: 15px;
+    height: 30px;
+}
+#dateTo{
+    display: block;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 15px;
+    height: 30px;
+}
+#submit{
+    margin-top: 90px;
+    background-image: url('giphy.gif');
+    background-size: cover;
+    border-radius: 10px;
+    width: 180px;
+    height: 70px;
+    font-weight: bolder;
+}

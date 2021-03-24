@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='form.css' type='text/css'>
+    <script type="text/javascript" src= "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"><script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type='text/javascript'>
+
+    $(document).ready(function(){
+        $('form :submit').click(function(){
+            $('#cards').hide();
+            $('#submit').css('background-color', 'black');
+            if($('#name').val() == ""){
+                $('#cards').show();
+                $('#cards').html("<div class='error'><p>Your Name can\'t be blank!</p></div>")
+                $('#submit').css('background-color', 'green');
+            }
+            if($('#dateTo').val() == '' || $('#dateFrom').val() == ''){
+                $('#cards').show();
+                $('#cards').html("<div class='error'><p>The dates can\'t be blank!</p></div>");
+                $('#submit').css('background-color', 'green');
+            }
+            if($('#name').val() != '' && $('#dateFrom').val() != '' && $('#dateTo').val() != ''){
+                $('#dialog').dialog('open');
+                $('#dialog').html('<p>Thank you ' + $('#name').val() + '! Your cruise leaves on ' + $('#dateFrom').val() + ' and returns on ' + $('#dateTo').val() + ' .</p>')
+            }
+            return false;
+        });
+    });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#dialog').dialog({autoOpen: false});
+
+            $('#dateFrom').datepicker();
+
+            $('#dateFrom').focus(function(){
+                $('#dateFrom').datepicker('show');
+            });
+            $('#dateFrom').click(function(){
+                $('#dateFrom').datepicker('show');
+            });
+            $('#dateTo').datepicker();
+            $('#dateTo').focus(function(){
+                $('#dateTo').datepicker('show');
+            });
+            $('#dateTo').click(function(){
+                $('#dateTo').datepicker('show');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Plan-a-Cruise!</h1>
+    <div id='container'>
+        <form>
+            <label for='name'>Name</label>
+            <input type='text' name='name' id='name' placehodler='Enter Name'>
+
+            <label for='dateFrom'>From:</label>
+            <input type='text' name='dateFrom' id='dateFrom' placeholder='DD/MM/YY'>
+
+            <label for='dateTo'>To:</label>
+            <input type='text' name='dateTo' id='dateTo' placeholder='DD/MM/YY'>
+            
+            <input type='submit' name='submit' id='submit' value='Check Dates'>
+        </form>
+    </div>
+    <div id='cards'></div>
+    <div id='dialog'></div>
+</body>
+</html>
